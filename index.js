@@ -1,6 +1,7 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const PokemonTeam = require("./database/models/PokemonTeam")
+const cors = require("cors")
 const { isJson } = require("./helpers")
 
 const app = express()
@@ -12,6 +13,12 @@ app.listen(port, err => {
 })
 
 app.use(bodyParser.urlencoded({ extended: false }))
+app.use(
+  cors({
+    origin: "*",
+    optionsSuccessStatus: 200,
+  })
+)
 
 app.post("/teams", (req, res) => {
   const name = req.body.name
