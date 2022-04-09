@@ -1,5 +1,6 @@
 const express = require("express")
-require("./database/config")
+const connection = require("./database/config")
+const PokemonTeams = require("./database/models/PokemonTeam")
 
 const app = express()
 const port = 4000
