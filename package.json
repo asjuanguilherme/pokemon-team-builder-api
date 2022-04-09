@@ -1,0 +1,14 @@
+{
+  "name": "pokemon-team-builder-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "Juan Guilherme",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
