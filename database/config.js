@@ -15,7 +15,7 @@ const connection = new Sequelize(DATABASE_NAME, DATABASE_USER, DATABASE_PASS, {
   port: DATABASE_PORT,
 })
 
-module.exports = connection
+connection
   .authenticate()
   .then(() =>
     console.log(
@@ -23,3 +23,5 @@ module.exports = connection
     )
   )
   .catch(err => console.error(err))
+
+module.exports = connection
