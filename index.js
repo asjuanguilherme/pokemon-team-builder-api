@@ -41,7 +41,10 @@ app.post("/teams", (req, res) => {
 })
 
 app.get("/teams", (req, res) => {
-  PokemonTeam.findAll({ raw: true })
+  const limit = parseInt(req.query.limit)
+  const offset = parseInt(req.query.offset)
+
+  PokemonTeam.findAll({ offset, limit, raw: true })
     .then(data => res.send(data))
     .catch(err => {
       console.log(err)
