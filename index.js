@@ -24,6 +24,8 @@ app.post("/teams", (req, res) => {
   const name = req.body.name
   const characters = req.body.characters
 
+  console.log(name, characters)
+
   if (!name || !characters) return res.send("Todos os campos são obrigatórios")
   if (!isJson(characters) || typeof JSON.parse(characters) !== "object")
     return res.send(
@@ -41,8 +43,8 @@ app.post("/teams", (req, res) => {
 })
 
 app.get("/teams", (req, res) => {
-  const limit = parseInt(req.query.limit)
-  const offset = parseInt(req.query.offset)
+  const limit = req.query.limit ? parseInt(req.query.limit) : undefined
+  const offset = req.query.offset ? parseInt(req.query.offset) : undefined
 
   PokemonTeam.findAll({ offset, limit, raw: true })
     .then(data => res.send(data))
