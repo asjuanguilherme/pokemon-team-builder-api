@@ -46,7 +46,12 @@ app.get("/teams", (req, res) => {
   const limit = req.query.limit ? parseInt(req.query.limit) : undefined
   const offset = req.query.offset ? parseInt(req.query.offset) : undefined
 
-  PokemonTeam.findAll({ offset, limit, raw: true })
+  PokemonTeam.findAll({
+    offset,
+    limit,
+    raw: true,
+    order: [['id', 'ASC']]
+  })
     .then(data => res.send(data))
     .catch(err => {
       console.log(err)
