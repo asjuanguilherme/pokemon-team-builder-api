@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "format": "prettier --write .",
+    "format:run": "prettier --write .",
+    "format:check": "prettier --check .",
     "prepare": "husky install"
   },
   "author": "Juan Guilherme",
