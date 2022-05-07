@@ -1,16 +1,16 @@
-const { Sequelize, Model, DataTypes } = require("sequelize")
-const connection = require("../config")
+const { Sequelize, Model, DataTypes } = require('sequelize')
+const connection = require('../config')
 
-const tableName = "pokemon_teams"
+const tableName = 'pokemon_teams'
 const Team = connection.define(tableName, {
   name: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: false
   },
   characters: {
     type: DataTypes.STRING,
-    allowNull: false,
-  },
+    allowNull: false
+  }
 })
 
 Team.sync({ force: false })
